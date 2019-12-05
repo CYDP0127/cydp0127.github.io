@@ -1,0 +1,19 @@
+- name: Back-End
+  keywords:
+    - Node.js
+    - Funcation Programming
+    - Elastic Search
+    - Kibana
+    - RDBS
+    - NoSQL
+    - lodash
+
+- name: Front-End
+  keywords:
+      - Javascript
+      - Vue.js
+
+- name: Data Science
+  keywords:
+      - Machine Learning
+      - Product Recommender System

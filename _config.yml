@@ -1,0 +1,122 @@
+# ---------------- #
+#   Main Configs   #
+# ---------------- #
+baseurl:
+url: localhost
+date_format: "ordinal"
+title: Microment
+subtitle: "Do small things with great love"
+description: "Do small things with great love"
+keywords: Daniel Choi, 최용득, Yongdeuk Choi
+timezone: Asia/Seoul
+encoding: "utf-8"
+side_bar_repo_limit: 5
+
+# ---------------- #
+#      Author      #
+# ---------------- #
+author: Daniel Choi
+organization:
+organization_url:
+github_username: CYDP0127
+location: Seoul, South Korea
+email: cydp0127@gmail.com
+
+# ---------------- #
+#    Navigation    #
+# ---------------- #
+navs:
+  -
+    href: /
+    label: Home
+
+  -
+    href: /categories/
+    label: Categories
+
+  -
+    href: /archives/
+    label: Archives
+
+#  -
+#    href: /wiki/
+#    label: 维基
+
+#  -
+#    href: /links/
+#    label: 链接
+
+  -
+    href: /about/
+    label: About
+
+# ---------------- #
+#       RSS        #
+# ---------------- #
+subscribe_rss: /feed.xml
+
+# ---------------- #
+#      Jekyll      #
+# ---------------- #
+markdown: kramdown
+kramdown:
+    input: GFM
+highlighter: rouge
+paginate: 10
+lsi: false
+quiet: false
+excerpt_separator: "\n\n"
+permalink: /:year/:month/:day/:title/
+gems:
+    - jekyll-github-metadata
+    - rouge
+#     - jekyll-html-pipeline
+    - jekyll-paginate
+    - jekyll-sitemap
+    - jekyll-feed
+    - jemoji
+#     - jekyll-mentions
+collections:
+    wiki:
+        output: true
+        permalink: /wiki/:path/
+
+repository: cydp0127/cydp0127.github.io
+
+# ---------------- #
+#      Comments    #
+# ---------------- #
+# support provider: disqus, gitment, gitalk
+comments_provider: gitalk
+# !!!Important!!! Please modify infos below to yours
+# https://disqus.com
+disqus:
+    username:
+# https://imsun.net/posts/gitment-introduction/
+gitment:
+    owner: CYDP0127
+    repo: blog-comments
+    oauth:
+        client_id: e72fda212b7c3ee04df5
+        client_secret: 4f4473caa3e720dba231f69ccae137eb9dd4ded2
+# https://github.com/gitalk/gitalk#install
+gitalk:
+    owner: CYDP0127
+    repo: blog-comments
+    clientID: e72fda212b7c3ee04df5
+    clientSecret: 4f4473caa3e720dba231f69ccae137eb9dd4ded2
+
+lazy_load_disqus : false
+
+# ---------------- #
+#      Search      #
+# ---------------- #
+simple_jekyll_search:
+    fulltext: false
+    limit: 10
+
+# ---------------- #
+#    Analytics     #
+# ---------------- #
+google:
+    analytics_id: UA-153668680-1

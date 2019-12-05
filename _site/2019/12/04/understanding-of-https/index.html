@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>철수와 영희를 통해 이해하는 HTTPS &mdash; Microment</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+<!--    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">-->
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/2019/12/04/understanding-of-https/">
+    <link rel="alternate" type="application/atom+xml" title="Microment" href="http://localhost:4000/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="철수와 영희를 통해 이해하는 HTTPS">
+      
+    <meta name="keywords" content="HTTPS, Server">
+    <meta name="og:keywords" content="HTTPS, Server">
+      
+    <meta name="description" content="들어가는 글,">
+    <meta name="og:description" content="들어가는 글,">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/2019/12/04/understanding-of-https/">
+    <meta property="og:site_name" content="Microment">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2019-12-04">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script src="http://localhost:4000/assets/js/main.js"></script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Microment">Microment</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+                <a href="http://localhost:4000/" class=" site-header-nav-item" target="" title="Home">Home</a>
+                
+                <a href="http://localhost:4000/categories/" class=" site-header-nav-item" target="" title="Categories">Categories</a>
+                
+                <a href="http://localhost:4000/archives/" class=" site-header-nav-item" target="" title="Archives">Archives</a>
+                
+                <a href="http://localhost:4000/about/" class=" site-header-nav-item" target="" title="About">About</a>
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head large geopattern" data-pattern-id="철수와 영희를 통해 이해하는">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">철수와 영희를 통해 이해하는 HTTPS</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2019/12/04
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#HTTPS" title="HTTPS">HTTPS</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <h3 id="들어가는-글">들어가는 글,</h3>
+
+<p>개발자라면 누구나 HTTPS에 대해서 들어보았을 것이다. 굳이 개발자가 아니더라도 최근에 정부에서 유해사이트를 전면 차단하면서 HTTPS를 통해 기존에 하던 우회(?)접속까지 막혀버려 많이 이슈가 되었었다. (실제로 많은 청년들이 길거리에서 시위를 했다는…ㅋㅋㅋ)</p>
+
+<p>HTTPS란 Hypertext Transfer Protocol Secure (기존 HTTP에 Secure를 뜻하는 S를 더함)의 약자로 정보를 주고받을때 암호화를 하여 통신하는 방식을 의미한다.</p>
+
+<p>암호화 통신을 통해 중간에 해커로 부터 데이터를 탈취당하더라도 내용을 알아볼수 없다라는 이점이 있으며, 방문하는 블로그 등의 사이트에서 브라우저 정보를 수집할때도 HTTP통신에 비해 한정적인 데이터가 수집된다는 이점도 존재한다.</p>
+
+<p> </p>
+
+<h3 id="기존의-통신-방법">기존의 통신 방법</h3>
+
+<p>기존 HTTP통신 방법에서는 암호화가 전혀 이루어지지 않았다.</p>
+
+<p>예를 들어, 철수와 영희가 연애편지를 주고받는다고 생각해보자. 둘은 아날로스 방식으로 편지를 서로 주고받고 있는데 이 사이를 질투한 민수가 중간에서 편지를 훔쳐(탈취하여) 내용을 보고 수정을 해버린다면 어떻게 될까 ?</p>
+
+<p>암호화나 보완관련 작업이 전혀 이루어지지 않은 편지는 중간에 무슨일이 일어나도 철수와 영희는 이 사실조차 인지하지 못할것이다. 그저 마음이 변해버린 영희를 그리워하는 철수만 남을것이다.. (ㅠㅠ)</p>
+
+<p>이 문제를 해결하기 위해 등장한 방법이 대칭키 암호화(symmetric key cryptography) 방식이다.</p>
+
+<p> </p>
+
+<h3 id="대칭키-암호화">대칭키 암호화</h3>
+
+<p>대칭키 암호화 방식은 암호화 하는 키와 복호화 하는 키가 같아서 대칭키라는 이름이 붙었다.</p>
+
+<p>편지를 주고받던 철수와 영희는 그들만의 비밀편지를 누군가가 엿보는것이 우려되기 시작하였다. 따라서 둘은 서로가 쓰는 편지를 남들이 알아볼수 없도록 모든 글자를 3자리 앞에 존재하는 글자로 치환한 다음 편지를 보내고 (암호화) 받았을때 역시 모든 글자를 3자리 뒤에 존재하는 글자로 치환(복호화)하여 보기로 하였다.</p>
+
+<p>예를들어 D → A, E → B, F → C 이런식으로 글자를 3자리씩 앞으로 옮긴다면 “secret message”는 “pbzobq jbppxdb”가 될 것이다.</p>
+
+<p>이렇게 암호화키와 복호화키가 같은경우를 대칭키 암호화라고 부른다.</p>
+
+<p>하지만 위의 방법에는 치명적인 단점이 있다. 우선 철수와 영희가 직접적으로 만나지 않는 이상 암호화/복호화 방법을 편지를 통해 주고 받아야 하는데 이 과정에서 이미 민수에게 내용이 노출될 수 있다는점이다. 또한, 평소 암호학을 공부하던 민수는 이렇게 간단한 암호화 기법은 손쉽게 풀어버릴 수 도 있다.</p>
+
+<p>따라서 이를 우려한 철수와 영희는 비대칭 암호화(asymmetric key cryptography) 방식을 통하여 서로 비밀 편지를 주고 받도록 한다..</p>
+
+<p> </p>
+
+<h3 id="비대칭키-암호화">비대칭키 암호화</h3>
+
+<p>철수와 영희는 다음와 같은 방법을 생각해 낸다.</p>
+
+<ul>
+  <li>철수는 영희에게 아무것도 적혀있지 않는 편지를 먼저 보낸다</li>
+  <li>영희는 잠겨있지 않는 박스에 박스 열쇠를 넣어 다시 철수에게 보낸다.</li>
+  <li>철수는 박스에 편지를 담은 후 박스를 잠그고 해당 박스를 영희에게 보낸다.</li>
+  <li>영희는 박스를 열어 편지를 확인한다.</li>
+</ul>
+
+<p>위의 방법은 암호화와 복호화의 키가 서로 같지 않기 때문에 비대칭키 암호화라고 불린다. 왜냐하면 박스를 중간에 가로채어 닫는데는 성공하여도 닫혀있는 박스를 열수는 없기 때문이다.</p>
+
+<p>여기서 박스는 공개키(public key)가 되는것이고, 박스를 여는 열쇠는 비공개키(private key)가 된다.</p>
+
+<p> </p>
+
+<h3 id="여기서의-또다른-문제점">여기서의 또다른 문제점</h3>
+
+<p>이미 눈치채신분도 계시겠지만 여기서 철수가 박스를 받았을때 어떻게 영희가 보낸 박스인지 믿을 수 있을까 ?</p>
+
+<p>영희는 따라서 자신이 보낸 박스가 맞다는 서명을 함께 동봉하여 철수에게 보내기로 하였다.</p>
+
+<p>하지만 영희의 서명을 한번도 본적이 없는 철수는 여전히 민수가 보낸 박스인지 의심할 수 밖에 없는 상황이였다.</p>
+
+<p>여기서 철수와 영희는 모두가 다 알고, 믿을만한 사람인 선생님께 박스에 서명을 하도록 부탁하기로 한다.</p>
+
+<p>선생님은 박스를 받았을때 영희가 준것을 확인한 후에야 박스에 서명을 해주기로 약속한다. 여기서 선생님의 역할을 Certification Authority(CA)라고 부른다.</p>
+
+<p>선생님의 서명을 알고있던 철수는 영희가 보낸 박스가 맞다는 사실에 안도하며 둘만의 안전한(?) 비밀편지를 주고받을수 있게 되었다.</p>
+
+<p> </p>
+
+<h3 id="끝으로">끝으로,,</h3>
+
+<p>HTTPS의 통신 방법을 철수와 영희의 예시로 들어 보았다. 실제로 HTTPS가 적용되어 있는 웹페이지에 접속한다면 선생님의 역할이였던 CA의 서명과 정보가 함께 동봉되어 브라우저로 전달이 된다.</p>
+
+<p>HTTP에 비해서 절차가 많고 비대칭적으로 암호화가 되는 등 웹페이지가 상대적으로 무거워지는 단점이 존재한다. 따라서 실제로는 비대칭키 암호화는 암호화키를 주고받을때만 사용된다.</p>
+
+<p> </p>
+
+<h3 id="reference">Reference</h3>
+
+<p><a href="https://medium.com/free-code-camp/https-explained-with-carrier-pigeons-7029d2193351">https://medium.com/free-code-camp/https-explained-with-carrier-pigeons-7029d2193351</a></p>
+
+<p><a href="https://www.thesslstore.com/blog/what-happens-when-your-ssl-certificate-expires/">https://www.thesslstore.com/blog/what-happens-when-your-ssl-certificate-expires/</a></p>
+
+<p><a href="https://love2dev.com/blog/how-https-works/">https://love2dev.com/blog/how-https-works/</a></p>
+
+    </article>
+<!--    <div class="share">-->
+<!--      <div class="share-component"></div>-->
+<!--    </div>-->
+    <div class="comment">
+      
+
+  
+
+  
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        <script>
+        var gitalk = new Gitalk({
+            id: '/2019/12/04/understanding-of-https/',
+            clientID: 'e72fda212b7c3ee04df5',
+            clientSecret: '4f4473caa3e720dba231f69ccae137eb9dd4ded2',
+            repo: 'blog-comments',
+            owner: 'CYDP0127',
+            admin: ['CYDP0127'],
+            labels: ['gitment'],
+            perPage: 50,
+        })
+        gitalk.render('gitalk-container')
+        </script>
+  
+
+
+    </div>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/simple-jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+<!--    
+-->
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                    © 2019
+                    <span title="Daniel Choi">Daniel Choi</span>
+                    <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/cydp0127/cydp0127.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+                <li>
+                    <a href="http://localhost:4000/" title="Home" target="">Home</a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:4000/categories/" title="Categories" target="">Categories</a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:4000/archives/" title="Archives" target="">Archives</a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:4000/about/" title="About" target="">About</a>
+                </li>
+                
+                <li><a href="http://localhost:4000/feed.xml"><span class="octicon octicon-rss" style="color:orange;"></span></a></li>
+            </ul>
+
+        </div>
+    </footer>
+    <div class="tools-wrapper">
+      <a class="gotop" href="#" title="back-to-top"><span class="octicon octicon-arrow-up"></span></a>
+    </div>
+    <!-- / footer -->
+<!--    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>-->
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div style="display:none">
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-153668680-1', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+    </div>
+    
+</body>
+</html>
