@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: localhost
+url:
 date_format: "ordinal"
 title: Deuk
 subtitle: "Do small things with great love"
