@@ -3,7 +3,7 @@ layout: post
 title: 철수와 영희를 통해 알아보는 HTTPS 기본 개념
 categories: [HTTPS]
 description: Understanding of HTTPS
-keywords: HTTPS, Server
+keywords: HTTPS, Server, Client
 ---
 
 ### 들어가는 글,
