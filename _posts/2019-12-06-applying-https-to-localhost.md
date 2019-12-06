@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 5분만에 Node.js 로컬호스트에 HTTPS 적용하기 (1)
+title: 5분안에 Node.js 로컬호스트에 HTTPS 적용하기 (1)
 categories: [HTTPS, Server]
 description: applying-https-to-localhost
 keywords: HTTPS, Node.js, Server, Client
