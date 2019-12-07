@@ -10,7 +10,7 @@ permalink: /about/
 
 > I believe life is a journey of finding meanings of life.
 
-Hi, I am Daniel from South Korea, currently working at a startup company.
+Hi, I am Daniel Choi from South Korea, currently working at a startup company.
   
 Life is a long journey of finding meanings of life.
 Some are looking for a stable job and happy family and
