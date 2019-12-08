@@ -64,7 +64,7 @@ HTTPS로 동일한 API에 GET REQUEST를 해보았습니다.
 
 가장 먼저 보이는 차이점은 Protocol이 이전에는 HTTP였다면 지금은 TCP와 [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)로만 통신을 하게 됩니다.
 
-위에서 부터 순서대로 서버와 클라이언트가 인증서와 Key를 주고받은 다음 암호화 통신에 필요한 기본적인 정보들을 주고 받게 됩니다. HandShake 까지 완료가 되면 그 뒤로 REQUEST 와 RESPONSE가 진행됩니다.
+위에서 부터 순서대로 서버와 클라이언트가 인증서와 키를 주고받은 다음 암호화 통신에 필요한 기본적인 정보들을 주고 받게 됩니다. HandShake 까지 완료가 되면 그 뒤로 REQUEST 와 RESPONSE가 진행됩니다.
 
 ![](/images/posts/https/https-wireshark-details.png)
 
